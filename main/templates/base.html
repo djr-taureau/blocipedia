@@ -1,33 +1,38 @@
-<!-- templates/base.html -->
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>{% block title %}Django Auth Tutorial{% endblock %}</title>
+demo
+/
+templates
+/
+base.html
 
-  {% block head %}
-  {% include 'material/includes/material_css.html' %}
+<!DOCTYPE html>{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Material Design for Django Forms and Admin{% endblock %}</title>
 
-  <style type="text/css">
-    html, body {
-        background: #eee;
-        height: 100%;
-    }
-  </style>
-  {% block extrahead %}{% endblock %}
-  {% endblock %}
+    {% block head %}
+    {% include 'material/includes/material_css.html' %}
 
-
-</head>
-<body>
-  <main>
-    {% block content %}
+    <style type="text/css">
+      html, body {
+          background: #eee;
+          height: 100%;
+      }
+    </style>
+    {% block extrahead %}{% endblock %}
     {% endblock %}
-  </main>
-  {% block js %}
-  <script src="{% static 'material/js/jquery.js' %}"></script>
-  {% include 'material/includes/material_js.html' %}
-  {% block extrajs %}{% endblock %}
-  {% endblock %}
-</body>
+  </head>
+  <body class="valign-wrapper2">
+      {% block sidebar %}{% endblock %}
+      <div class="{% block container_class %}container expand-on-small-only{% endblock %}">
+          {% block content %}{% endblock %}
+      </div>
+      {% block js %}
+      <script src="{% static 'material/js/jquery.js' %}"></script>
+      {% include 'material/includes/material_js.html' %}
+      {% block extrajs %}{% endblock %}
+      {% endblock %}
+  </body>
 </html>
